@@ -17,11 +17,13 @@ body {
     background: linear-gradient(135deg, #fff1f5, #fde2f3);
     color: #4a2c3a;
     overflow-x: hidden;
+    display: flex;
+    justify-content: center;
 }
 
 .container {
     max-width: 850px;
-    margin: auto;
+    width: 100%;
     padding: 60px 20px;
     text-align: center;
 }
@@ -50,13 +52,19 @@ button {
     color: white;
     font-size: 16px;
     cursor: pointer;
+    transition: 0.3s ease;
+}
+
+button:hover {
+    transform: scale(1.05);
 }
 
 input {
-    padding: 10px;
+    padding: 10px 20px;
     border-radius: 25px;
     border: 1px solid #c06c84;
     text-align: center;
+    width: 250px;
 }
 
 .hidden {
@@ -64,11 +72,17 @@ input {
 }
 
 img {
+    display: block;
+    margin: 25px auto;
     width: 100%;
     max-width: 500px;
     border-radius: 20px;
-    margin-top: 20px;
     box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+    transition: transform 0.6s ease;
+}
+
+img:hover {
+    transform: scale(1.03);
 }
 </style>
 </head>
@@ -93,13 +107,10 @@ img {
 <div class="section">
     <h1>Lauren,</h1>
     <p>This is the most secure system I've ever built, because it protects the most important thing in my life.</p>
-    <p>My love for you.</p>
-</div>
-
-
+    <p><strong>My love for you.</strong></p>
     <img src="LB Restr..JPG">
 </div>
-    
+
 <div class="section">
     <h2>System Initialization</h2>
     <p>It all started on POF, not looking for romance...just friends from the LGBTQ community.</p>
@@ -108,8 +119,6 @@ img {
     <p>When I finally met you on campus at UAB everything began to shift.</p>
     <p>Watching how thoughtful, patient, and kind you were as you assisted others with their IT issues… I just knew you were different.</p>
     <p>Since that day, being around you makes my heart happy.</p>
-
-    <!-- Replace with your real photo links -->
     <img src="LV1.jpeg">
 </div>
 
@@ -122,8 +131,7 @@ img {
     <p>You carry a positive outlook on life.</p>
     <p>You're always willing to help me solve problems.</p>
     <p>You encourage me.</p>
-    <p>You're so easy to love!</p>
-
+    <p><strong>You're so easy to love.</strong></p>
     <img src="LV2.jpeg">
 </div>
 
@@ -132,11 +140,9 @@ img {
     <p>You showed me that I can be vulnerable.</p>
     <p>You taught me that it’s okay to ask for help.</p>
     <p>You made me trust deeper than I ever have before.</p>
-</div>
-
     <img src="Lightshow.JPG">
 </div>
-    
+
 <div class="section">
     <h2>Future Deployment Plan</h2>
     <p>Marriage.</p>
@@ -144,18 +150,16 @@ img {
     <p>Our home.</p>
     <p>Two children.</p>
     <p>A business that builds our legacy.</p>
-</div>
-
-
     <img src="Bama.JPG">
 </div>
-    
+
 <div class="section">
     <button onclick="revealSecret()">Unlock Hidden Message</button>
     <p id="secret" class="hidden">
         You are the power supply to my system. Converting the chaos of the world into the steady, quiet energy that keeps my heart running.
-        I will always protect what we’re building. 
-        Happy Valentines Day!!!!
+        I will always protect what we’re building.
+        <br><br>
+        <strong>Happy Valentine’s Day.</strong>
     </p>
 </div>
 
@@ -171,11 +175,10 @@ function checkPassword() {
         document.getElementById("content").classList.remove("hidden");
         revealSections();
 
-        // Start hidden music
         var music = document.getElementById("bgmusic");
         if (music) {
             music.play().catch(() => {
-                console.log("Autoplay blocked, user interaction required.");
+                console.log("Autoplay blocked.");
             });
         }
     } else {
@@ -199,6 +202,8 @@ function revealSections() {
 
 </body>
 </html>
+
+
 
 
 
