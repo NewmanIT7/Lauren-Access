@@ -3,49 +3,72 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Access Granted</title>
+<title>For Lauren</title>
+
+<!-- Favicon (small heart icon) -->
+<link rel="icon" type="image/png" href="https://cdn-icons-png.flaticon.com/512/833/833472.png">
+
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
+
 <style>
 body {
     margin: 0;
     font-family: 'Poppins', sans-serif;
-    background: linear-gradient(to bottom right, #fceff9, #f8d9e6);
+    background: linear-gradient(135deg, #fff1f5, #fde2f3);
     color: #4a2c3a;
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: 850px;
+    margin: auto;
+    padding: 60px 20px;
     text-align: center;
 }
-.container {
-    padding: 40px 20px;
-    max-width: 800px;
-    margin: auto;
-}
+
 h1, h2 {
     font-family: 'Playfair Display', serif;
 }
+
 .section {
-    margin: 60px 0;
-    animation: fadeIn 2s ease-in;
+    margin: 80px 0;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 1.2s ease;
 }
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(20px);}
-    to { opacity: 1; transform: translateY(0);}
+
+.section.visible {
+    opacity: 1;
+    transform: translateY(0);
 }
+
 button {
-    padding: 12px 24px;
+    padding: 12px 28px;
+    border-radius: 30px;
     border: none;
-    background-color: #c06c84;
+    background: #c06c84;
     color: white;
-    border-radius: 25px;
-    cursor: pointer;
     font-size: 16px;
+    cursor: pointer;
 }
+
+input {
+    padding: 10px;
+    border-radius: 25px;
+    border: 1px solid #c06c84;
+    text-align: center;
+}
+
 .hidden {
     display: none;
 }
-input {
-    padding: 10px;
+
+img {
+    width: 100%;
+    max-width: 500px;
     border-radius: 20px;
-    border: 1px solid #c06c84;
-    text-align: center;
+    margin-top: 20px;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.15);
 }
 </style>
 </head>
@@ -62,65 +85,77 @@ input {
 
 <div id="content" class="hidden container">
 
-   <div style="margin-top:20px;">
-    <iframe width="0" height="0"
-        src="https://www.youtube.com/embed/o_uGDDmSefg?autoplay=1&loop=1&playlist=o_uGDDmSefg"
-        frameborder="0"
-        allow="autoplay">
-    </iframe>
+<!-- Hidden YouTube Music -->
+<iframe width="0" height="0"
+src="https://www.youtube.com/embed/o_uGDDmSefg?autoplay=1&loop=1&playlist=o_uGDDmSefg"
+frameborder="0"
+allow="autoplay">
+</iframe>
+
+<div class="section">
+    <h1>Lauren,</h1>
+    <p>This is the most secure system I've ever built, because it protects the most important thing in my life.</p>
 </div>
 
-    <div class="section">
-        <h1>Lauren,</h1>
-        <p>This is the most secure system I have ever built — because it protects the most important thing in my life.</p>
-    </div>
+<div class="section">
+    <h2>System Initialization</h2>
+    <p>We met on POF, not looking for romance — just connection in the LGBTQ community.</p>
+    <p>But when we met at UAB while you were working IT help desk, everything shifted.</p>
+    <p>Watching how thoughtful you were with every client… your patience, your kindness… I knew you were different.</p>
+    <p>Being around you made my heart happy.</p>
 
-    <div class="section">
-        <h2>System Initialization</h2>
-        <p>We met on POF — not looking for romance, just connection within the LGBTQ community. But what we found was something neither of us expected.</p>
-        <p>When we met at UAB while you were working IT help desk, I knew you were different. Watching how thoughtful you were with every client… your patience, your kindness… it moved me. Just being around you made my heart happy.</p>
-    </div>
+    <!-- Replace with your real photo links -->
+    <img src="YOUR_PHOTO_LINK_1_HERE">
+</div>
 
-    <div class="section">
-        <h2>Why I Love You</h2>
-        <p>You are always kind, considerate, and thoughtful.</p>
-        <p>You are goal-oriented and invest in your future.</p>
-        <p>When you want something, nothing stands in your way.</p>
-        <p>You check to see if I’ve eaten.</p>
-        <p>You carry a positive outlook on life.</p>
-        <p>You encourage me and everyone around you.</p>
-        <p>If there’s ever a problem, you help solve it.</p>
-    </div>
+<div class="section">
+    <h2>Why I Love You</h2>
+    <p>You are always kind, considerate, and thoughtful.</p>
+    <p>You are goal-oriented and invest in your future.</p>
+    <p>When you want something, nothing stands in your way.</p>
+    <p>You check to see if I’ve eaten.</p>
+    <p>You carry a positive outlook on life.</p>
+    <p>You encourage me and everyone around you.</p>
+    <p>You always help me solve problems.</p>
 
-    <div class="section">
-        <h2>What You Changed In Me</h2>
-        <p>You showed me that I can be vulnerable.</p>
-        <p>You taught me that it’s okay to ask for help.</p>
-        <p>You made me trust deeper than I ever have before.</p>
-    </div>
+    <img src="YOUR_PHOTO_LINK_2_HERE">
+</div>
 
-    <div class="section">
-        <h2>Future Deployment Plan</h2>
-        <p>I see us married.</p>
-        <p>Moving to a new city.</p>
-        <p>Buying our home.</p>
-        <p>Raising two children.</p>
-        <p>Building a business together so our legacy lives on.</p>
-    </div>
+<div class="section">
+    <h2>What You Changed In Me</h2>
+    <p>You showed me that I can be vulnerable.</p>
+    <p>You taught me that it’s okay to ask for help.</p>
+    <p>You made me trust deeper than I ever have before.</p>
+</div>
 
-    <div class="section">
-        <button onclick="revealSecret()">Unlock Hidden Message</button>
-        <p id="secret" class="hidden">You didn’t just become part of my life… you became my safe place. And I will always protect what we’re building.</p>
-    </div>
+<div class="section">
+    <h2>Future Deployment Plan</h2>
+    <p>Marriage.</p>
+    <p>A new city.</p>
+    <p>Our home.</p>
+    <p>Two children.</p>
+    <p>A business that builds our legacy.</p>
+</div>
+
+<div class="section">
+    <button onclick="revealSecret()">Unlock Hidden Message</button>
+    <p id="secret" class="hidden">
+        You didn’t just become part of my life… you became my safe place.
+        And I will always protect what we’re building.
+    </p>
+</div>
 
 </div>
 
 <script>
+const correctPassword = "UABChangedMe2017!";
+
 function checkPassword() {
-    var password = document.getElementById("password").value;
-    if(password === "uabheart") {
+    const entered = document.getElementById("password").value;
+    if (entered === correctPassword) {
         document.getElementById("login").style.display = "none";
         document.getElementById("content").classList.remove("hidden");
+        revealSections();
     } else {
         alert("Access Denied");
     }
@@ -128,6 +163,15 @@ function checkPassword() {
 
 function revealSecret() {
     document.getElementById("secret").classList.remove("hidden");
+}
+
+function revealSections() {
+    const sections = document.querySelectorAll('.section');
+    sections.forEach((section, index) => {
+        setTimeout(() => {
+            section.classList.add('visible');
+        }, index * 600);
+    });
 }
 </script>
 
