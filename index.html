@@ -5,26 +5,44 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>For Lauren</title>
 
-<!-- Favicon (small heart icon) -->
 <link rel="icon" type="image/png" href="https://cdn-icons-png.flaticon.com/512/833/833472.png">
 
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
 
 <style>
 body {
     margin: 0;
     font-family: 'Poppins', sans-serif;
-    background: linear-gradient(135deg, #fff1f5, #fde2f3);
+    background: linear-gradient(135deg, #f8e1f4, #fcefee);
     color: #4a2c3a;
     overflow-x: hidden;
-    display: flex;
-    justify-content: center;
 }
 
+/* Floating Hearts */
+.heart {
+    position: fixed;
+    bottom: -20px;
+    font-size: 18px;
+    color: rgba(192,108,132,0.4);
+    animation: floatUp linear infinite;
+}
+
+@keyframes floatUp {
+    to {
+        transform: translateY(-110vh);
+        opacity: 0;
+    }
+}
+
+/* Glass Container */
 .container {
     max-width: 850px;
-    width: 100%;
-    padding: 60px 20px;
+    margin: 60px auto;
+    padding: 40px;
+    border-radius: 25px;
+    background: rgba(255,255,255,0.4);
+    backdrop-filter: blur(15px);
+    box-shadow: 0 20px 60px rgba(192,108,132,0.2);
     text-align: center;
 }
 
@@ -44,27 +62,59 @@ h1, h2 {
     transform: translateY(0);
 }
 
-button {
-    padding: 12px 28px;
+/* Secure Portal Login */
+#login {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.portal {
+    background: rgba(255,255,255,0.6);
+    backdrop-filter: blur(20px);
+    padding: 50px;
     border-radius: 30px;
+    box-shadow: 0 30px 80px rgba(0,0,0,0.15);
+    width: 320px;
+    text-align: center;
+}
+
+.portal h1 {
+    margin-bottom: 10px;
+}
+
+.portal small {
+    display: block;
+    margin-bottom: 25px;
+    opacity: 0.6;
+}
+
+input {
+    width: 100%;
+    padding: 12px;
+    border-radius: 25px;
+    border: none;
+    outline: none;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    border-radius: 25px;
     border: none;
     background: #c06c84;
     color: white;
-    font-size: 16px;
+    font-weight: 500;
     cursor: pointer;
     transition: 0.3s ease;
 }
 
 button:hover {
     transform: scale(1.05);
-}
-
-input {
-    padding: 10px 20px;
-    border-radius: 25px;
-    border: 1px solid #c06c84;
-    text-align: center;
-    width: 250px;
+    box-shadow: 0 0 20px rgba(192,108,132,0.5);
 }
 
 .hidden {
@@ -72,101 +122,89 @@ input {
 }
 
 img {
-    display: block;
-    margin: 25px auto;
     width: 100%;
     max-width: 500px;
     border-radius: 20px;
-    box-shadow: 0 15px 30px rgba(0,0,0,0.15);
-    transition: transform 0.6s ease;
+    margin: 25px auto;
+    display: block;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+    transition: 0.5s ease;
 }
 
 img:hover {
     transform: scale(1.03);
+}
+
+/* Countdown */
+#counter {
+    font-weight: 500;
+    margin-top: 15px;
+    color: #c06c84;
 }
 </style>
 </head>
 
 <body>
 
-<div id="login" class="container">
-    <h1>Restricted Access</h1>
-    <p>Authorized User: Lauren</p>
-    <input type="password" id="password" placeholder="Enter Password">
-    <br><br>
-    <button onclick="checkPassword()">Access</button>
+<!-- Floating hearts -->
+<script>
+for (let i = 0; i < 20; i++) {
+    let heart = document.createElement("div");
+    heart.className = "heart";
+    heart.innerHTML = "♥";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.animationDuration = (6 + Math.random() * 6) + "s";
+    document.body.appendChild(heart);
+}
+</script>
+
+<div id="login">
+    <div class="portal">
+        <h1>Secure Portal</h1>
+        <small>Authorized User: Lauren</small>
+        <input type="password" id="password" placeholder="Enter Encryption Key">
+        <button onclick="checkPassword()">Authenticate</button>
+    </div>
 </div>
 
 <div id="content" class="hidden container">
 
-<!-- Hidden Music -->
 <audio id="bgmusic" loop>
     <source src="Speechless.mp3" type="audio/mpeg">
 </audio>
 
 <div class="section">
-    <h1>Lauren,</h1>
-    <p>This is the most secure system I've ever built, because it protects the most important thing in my life.</p>
+    <h1 id="typed"></h1>
+    <p>This is the most secure system I've ever built.</p>
+    <p><strong>Because it protects the most important thing in my life.</strong></p>
     <p><strong>My love for you.</strong></p>
+    <div id="counter"></div>
     <img src="LB Restr..JPG">
 </div>
 
 <div class="section">
     <h2>System Initialization</h2>
-    <p>It all started on POF, not looking for romance...just friends from the LGBTQ community.</p>
-    <p>The search for friends was horrible as everyone was super weird. Then I received a message from you.</p> 
-    <p>I had no idea it would be a message from someone that would later become the best part of my life.</p>
-    <p>When I finally met you on campus at UAB everything began to shift.</p>
-    <p>Watching how thoughtful, patient, and kind you were as you assisted others with their IT issues… I just knew you were different.</p>
-    <p>Since that day, being around you makes my heart happy.</p>
+    <p>It all started on POF...</p>
+    <p>I had no idea it would lead to you becoming the best part of my life.</p>
     <img src="LV1.jpeg">
 </div>
 
 <div class="section">
     <h2>Central Processing Unit: Why I Love You</h2>
-    <p>You are always kind, considerate, and thoughtful.</p>
-    <p>You are goal-oriented and invest in your future.</p>
-    <p>When you want something, nothing stands in your way.</p>
-    <p>You always check to see if I’ve eaten.</p>
-    <p>You carry a positive outlook on life.</p>
-    <p>You're always willing to help me solve problems.</p>
-    <p>You encourage me.</p>
-    <p><strong>You're so easy to love.</strong></p>
+    <p>You are kind, thoughtful, driven, and resilient.</p>
+    <p>You encourage me and make me better.</p>
     <img src="LV2.jpeg">
 </div>
 
 <div class="section">
-    <h2>System Updates: What You Changed In Me</h2>
-    <p>You showed me that I can be vulnerable.</p>
-    <p>You taught me that it’s okay to ask for help.</p>
-    <p>You made me trust deeper than I ever have before.</p>
-    <img src="Lightshow.JPG">
-</div>
-
-<div class="section">
     <h2>Future Deployment Plan</h2>
-    <p>Marriage.</p>
-    <p>A new city.</p>
-    <p>Our home.</p>
-    <p>Two children.</p>
-    <p>A business that builds our legacy.</p>
-    <img src="Bama.JPG">
-</div>
-
-<div class="section">
-    <button onclick="revealSecret()">Unlock Hidden Message</button>
-    <p id="secret" class="hidden">
-        You are the power supply to my system. Converting the chaos of the world into the steady, quiet energy that keeps my heart running.
-        I will always protect what we’re building.
-        <br><br>
-        <strong>Happy Valentine’s Day.</strong>
-    </p>
+    <p>Marriage. A new city. Our home. Two children. Our legacy.</p>
 </div>
 
 </div>
 
 <script>
-const correctPassword = "UABChangedMe2017!";
+const correctPassword = "UABChangedMe2017!"; // Case-sensitive
 
 function checkPassword() {
     const entered = document.getElementById("password").value;
@@ -174,34 +212,62 @@ function checkPassword() {
         document.getElementById("login").style.display = "none";
         document.getElementById("content").classList.remove("hidden");
         revealSections();
+        typeWriter();
+        startCounter();
 
-        var music = document.getElementById("bgmusic");
-        if (music) {
-            music.play().catch(() => {
-                console.log("Autoplay blocked.");
-            });
-        }
+        let music = document.getElementById("bgmusic");
+        music.play().catch(()=>{});
     } else {
-        alert("Access Denied");
+        alert("Authentication Failed");
     }
 }
 
-function revealSecret() {
-    document.getElementById("secret").classList.remove("hidden");
-}
-
+/* Reveal Sections */
 function revealSections() {
     const sections = document.querySelectorAll('.section');
     sections.forEach((section, index) => {
         setTimeout(() => {
             section.classList.add('visible');
-        }, index * 600);
+        }, index * 700);
     });
+}
+
+/* Typing Effect */
+function typeWriter() {
+    const text = "Lauren,";
+    let i = 0;
+    function typing() {
+        if (i < text.length) {
+            document.getElementById("typed").innerHTML += text.charAt(i);
+            i++;
+            setTimeout(typing, 120);
+        }
+    }
+    typing();
+}
+
+/* Countdown Since You Met */
+function startCounter() {
+    const startDate = new Date("2017-11-10T00:00:00"); // CHANGE THIS
+    const counter = document.getElementById("counter");
+
+    setInterval(() => {
+        const now = new Date();
+        const diff = now - startDate;
+
+        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+        const years = Math.floor(days / 365);
+        const remainingDays = days % 365;
+
+        counter.innerHTML = `We've been building this for ${years} years and ${remainingDays} days.`;
+    }, 1000);
 }
 </script>
 
 </body>
 </html>
+
+
 
 
 
