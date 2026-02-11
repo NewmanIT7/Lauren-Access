@@ -85,12 +85,10 @@ img {
 
 <div id="content" class="hidden container">
 
-<!-- Hidden YouTube Music -->
-<iframe width="0" height="0"
-src="https://www.youtube.com/embed/o_uGDDmSefg?autoplay=1&loop=1&playlist=o_uGDDmSefg"
-frameborder="0"
-allow="autoplay">
-</iframe>
+<!-- Hidden Music -->
+<audio id="bgmusic" loop>
+    <source src="speechless.mp3" type="audio/mpeg">
+</audio>
 
 <div class="section">
     <h1>Lauren,</h1>
@@ -108,7 +106,7 @@ allow="autoplay">
     <p>Since that day, being around you makes my heart happy.</p>
 
     <!-- Replace with your real photo links -->
-    <img src="LV1.jpeg">
+    <img src="lsjdalja">
 </div>
 
 <div class="section">
@@ -161,6 +159,14 @@ function checkPassword() {
         document.getElementById("login").style.display = "none";
         document.getElementById("content").classList.remove("hidden");
         revealSections();
+
+        // Start hidden music
+        var music = document.getElementById("bgmusic");
+        if (music) {
+            music.play().catch(() => {
+                console.log("Autoplay blocked, user interaction required.");
+            });
+        }
     } else {
         alert("Access Denied");
     }
@@ -182,13 +188,3 @@ function revealSections() {
 
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
