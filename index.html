@@ -348,7 +348,6 @@ function checkPassword() {
     }
 }
 
-
 function revealSections() {
     const sections = document.querySelectorAll('.section');
     sections.forEach((section, index) => {
@@ -371,17 +370,31 @@ function typeWriter() {
     typing();
 }
 
+function startCounter() {
+    const startDate = new Date("2017-11-10T00:00:00");
+    const counter = document.getElementById("counter");
 
-function revealSecret() {
-    const secret = document.getElementById("secret");
-    secret.classList.add("revealed");
+    setInterval(() => {
+        const now = new Date();
+        const diff = now - startDate;
+        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+        const years = Math.floor(days / 365);
+        const remainingDays = days % 365;
+        counter.innerHTML = `We've been building this for ${years} years and ${remainingDays} days.`;
+    }, 1000);
 }
 
-    
+// Corrected revealSecret function
+function revealSecret() {
+    const secret = document.getElementById("secret");
+
+    // Add the proper classes
+    secret.classList.remove("secret-hidden"); // Remove hidden state
+    secret.classList.add("secret-revealed");  // Add revealed/glow state
+}
 </script>
 
-</body>
-</html>
+
 
 
 
