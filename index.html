@@ -23,6 +23,17 @@
     animation: softGlow 3s ease-in-out infinite alternate;
 }
 
+@keyframes softGlow {
+    from {
+        text-shadow: 0 0 5px rgba(192,108,132,0.3),
+                     0 0 10px rgba(192,108,132,0.3);
+    }
+    to {
+        text-shadow: 0 0 15px rgba(192,108,132,0.7),
+                     0 0 25px rgba(192,108,132,0.6);
+    }
+}
+
 body {
     margin: 0;
     font-family: 'Poppins', sans-serif;
@@ -165,17 +176,8 @@ img:hover {
     opacity: 1;
     transform: translateY(0);
     animation: softGlow 3s ease-in-out infinite alternate;
-}
+    }
 
-@keyframes softGlow {
-    from {
-        text-shadow: 0 0 5px rgba(192,108,132,0.3),
-                     0 0 10px rgba(192,108,132,0.3);
-    }
-    to {
-        text-shadow: 0 0 15px rgba(192,108,132,0.7),
-                     0 0 25px rgba(192,108,132,0.6);
-    }
 }
 
 /* Authentication Success Overlay */
@@ -311,15 +313,14 @@ for (let i = 0; i < 20; i++) {
 <div class="section">
     <button onclick="revealSecret()">Unlock Hidden Message</button>
     <p id="secret" class="secret-hidden">
-       You are the power supply to my system.  
-       Converting chaos into steady energy that keeps my heart running.  
-       <br><br>
-       <strong>Happy Valentine’s Day!!!</strong>
+        You are the power supply to my system.  
+        Converting chaos into steady energy that keeps my heart running.  
+        <br><br>
+        <strong>Happy Valentine’s Day!!!</strong>
     </p>
-
 </div>
 
-</div>
+</div> <!-- Close container -->
 
 <script>
 const correctPassword = "UABChangedMe2017!";
@@ -328,11 +329,9 @@ function checkPassword() {
     const entered = document.getElementById("password").value;
 
     if (entered === correctPassword) {
-
         const overlay = document.getElementById("authSuccess");
         overlay.classList.add("show");
 
-        // After short delay, transition to main content
         setTimeout(() => {
             document.getElementById("login").style.display = "none";
             overlay.classList.remove("show");
@@ -340,7 +339,6 @@ function checkPassword() {
 
             revealSections();
             typeWriter();
-            startCounter();
             document.getElementById("bgmusic").play().catch(()=>{});
         }, 2000);
 
@@ -371,28 +369,14 @@ function typeWriter() {
     typing();
 }
 
-function startCounter() {
-    const startDate = new Date("2017-11-10T00:00:00");
-    const counter = document.getElementById("counter");
-
-    setInterval(() => {
-        const now = new Date();
-        const diff = now - startDate;
-        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-        const years = Math.floor(days / 365);
-        const remainingDays = days % 365;
-        counter.innerHTML = `We've been building this for ${years} years and ${remainingDays} days.`;
-    }, 1000);
-}
-
-// Corrected revealSecret function
+// SHOW HIDDEN MESSAGE
 function revealSecret() {
     const secret = document.getElementById("secret");
-    secret.classList.remove("secret-hidden"); // remove hidden state
-    secret.classList.add("secret-revealed");  // add visible/glow state
+    secret.classList.remove("secret-hidden");
+    secret.classList.add("secret-revealed");
 }
-
 </script>
+
 
 
 
