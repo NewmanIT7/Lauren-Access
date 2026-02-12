@@ -310,11 +310,11 @@ for (let i = 0; i < 20; i++) {
 
 <div class="section">
     <button onclick="revealSecret()">Unlock Hidden Message</button>
-    <p id="secret">
+    <p id="secret" class="secret-hidden">
         You are the power supply to my system.  
         Converting chaos into steady energy that keeps my heart running.  
         <br><br>
-        <strong>Happy Valentine’s Day.</strong>
+        <strong>Happy Valentine’s Day!!!</strong>
     </p>
 </div>
 
@@ -393,6 +393,7 @@ function revealSecret() {
     secret.classList.add("secret-revealed");  // Add revealed/glow state
 }
 </script>
+
 
 
 
