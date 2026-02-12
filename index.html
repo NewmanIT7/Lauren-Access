@@ -10,6 +10,19 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
 
 <style>
+.secret-hidden {
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: opacity 1.5s ease, max-height 1.5s ease;
+}
+
+.secret-revealed {
+    opacity: 1;
+    max-height: 500px;
+    animation: softGlow 3s ease-in-out infinite alternate;
+}
+
 body {
     margin: 0;
     font-family: 'Poppins', sans-serif;
@@ -303,6 +316,7 @@ function revealSecret() {
 
 </body>
 </html>
+
 
 
 
