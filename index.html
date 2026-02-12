@@ -156,11 +156,14 @@ img:hover {
 /* Hidden Message */
 #secret {
     opacity: 0;
-    transition: opacity 1.5s ease;
+    transform: translateY(10px);
+    transition: opacity 1.5s ease, transform 1.5s ease;
     margin-top: 20px;
 }
 
 #secret.revealed {
+    opacity: 1;
+    transform: translateY(0);
     animation: softGlow 3s ease-in-out infinite alternate;
 }
 
@@ -307,7 +310,7 @@ for (let i = 0; i < 20; i++) {
 
 <div class="section">
     <button onclick="revealSecret()">Unlock Hidden Message</button>
-    <p id="secret" class="secret-hidden">
+    <p id="secret">
         You are the power supply to my system.  
         Converting chaos into steady energy that keeps my heart running.  
         <br><br>
@@ -371,9 +374,7 @@ function typeWriter() {
 
 function revealSecret() {
     const secret = document.getElementById("secret");
-
-    secret.classList.remove("secret-hidden");
-    secret.classList.add("secret-revealed");
+    secret.classList.add("revealed");
 }
 
     
@@ -381,6 +382,7 @@ function revealSecret() {
 
 </body>
 </html>
+
 
 
 
