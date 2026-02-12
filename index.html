@@ -16,25 +16,14 @@
     overflow: hidden;
     transition: opacity 1.5s ease, max-height 1.5s ease;
 }
+
 .secret-revealed {
     opacity: 1;
     max-height: 500px;
     animation: softGlow 3s ease-in-out infinite alternate;
 }
 
-/* Glow Animation */
-@keyframes softGlow {
-    from {
-        text-shadow: 0 0 5px rgba(192,108,132,0.3),
-                     0 0 10px rgba(192,108,132,0.3);
-    }
-    to {
-        text-shadow: 0 0 15px rgba(192,108,132,0.7),
-                     0 0 25px rgba(192,108,132,0.6);
-    }
-}
-
-/* Body */
+/* General Styles */
 body {
     margin: 0;
     font-family: 'Poppins', sans-serif;
@@ -51,8 +40,12 @@ body {
     color: rgba(192,108,132,0.4);
     animation: floatUp linear infinite;
 }
+
 @keyframes floatUp {
-    to { transform: translateY(-110vh); opacity: 0; }
+    to {
+        transform: translateY(-110vh);
+        opacity: 0;
+    }
 }
 
 /* Glass Container */
@@ -67,24 +60,31 @@ body {
     text-align: center;
 }
 
-h1, h2 { font-family: 'Playfair Display', serif; }
+h1, h2 {
+    font-family: 'Playfair Display', serif;
+}
 
-/* Sections */
+/* Section Animation */
 .section {
     margin: 80px 0;
     opacity: 0;
     transform: translateY(30px);
     transition: all 1.2s ease;
 }
-.section.visible { opacity: 1; transform: translateY(0); }
 
-/* Login Portal */
+.section.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Secure Portal Login */
 #login {
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
 }
+
 .portal {
     background: rgba(255,255,255,0.6);
     backdrop-filter: blur(20px);
@@ -94,7 +94,13 @@ h1, h2 { font-family: 'Playfair Display', serif; }
     width: 320px;
     text-align: center;
 }
-.portal small { display: block; margin-bottom: 25px; opacity: 0.6; }
+
+.portal small {
+    display: block;
+    margin-bottom: 25px;
+    opacity: 0.6;
+}
+
 input {
     width: 100%;
     padding: 12px;
@@ -104,6 +110,7 @@ input {
     text-align: center;
     margin-bottom: 20px;
 }
+
 button {
     width: 100%;
     padding: 12px;
@@ -115,11 +122,15 @@ button {
     cursor: pointer;
     transition: 0.3s ease;
 }
+
 button:hover {
     transform: scale(1.05);
     box-shadow: 0 0 20px rgba(192,108,132,0.5);
 }
-.hidden { display: none; }
+
+.hidden {
+    display: none;
+}
 
 /* Images */
 img {
@@ -131,9 +142,24 @@ img {
     box-shadow: 0 20px 40px rgba(0,0,0,0.15);
     transition: 0.5s ease;
 }
-img:hover { transform: scale(1.03); }
 
-/* Auth Success Overlay */
+img:hover {
+    transform: scale(1.03);
+}
+
+/* Hidden Message Glow */
+@keyframes softGlow {
+    from {
+        text-shadow: 0 0 5px rgba(192,108,132,0.3),
+                     0 0 10px rgba(192,108,132,0.3);
+    }
+    to {
+        text-shadow: 0 0 15px rgba(192,108,132,0.7),
+                     0 0 25px rgba(192,108,132,0.6);
+    }
+}
+
+/* Authentication Success Overlay */
 #authSuccess {
     position: fixed;
     inset: 0;
@@ -146,10 +172,12 @@ img:hover { transform: scale(1.03); }
     pointer-events: none;
     transition: opacity 0.8s ease;
 }
+
 #authSuccess.show {
     opacity: 1;
     pointer-events: all;
 }
+
 .success-box {
     background: rgba(255,255,255,0.6);
     backdrop-filter: blur(20px);
@@ -159,11 +187,13 @@ img:hover { transform: scale(1.03); }
     text-align: center;
     animation: successGlow 2s ease-in-out infinite alternate;
 }
+
 .success-box h2 {
     font-family: 'Playfair Display', serif;
     color: #c06c84;
     margin: 0;
 }
+
 @keyframes successGlow {
     from { box-shadow: 0 0 15px rgba(192,108,132,0.3); }
     to { box-shadow: 0 0 40px rgba(192,108,132,0.6); }
@@ -173,7 +203,7 @@ img:hover { transform: scale(1.03); }
 
 <body>
 
-<!-- Authentication Overlay -->
+<!-- Authentication Success Overlay -->
 <div id="authSuccess">
     <div class="success-box">
         <h2>Authentication Successful</h2>
@@ -181,7 +211,7 @@ img:hover { transform: scale(1.03); }
     </div>
 </div>
 
-<!-- Floating Hearts -->
+<!-- Floating Hearts Script -->
 <script>
 for (let i = 0; i < 20; i++) {
     let heart = document.createElement("div");
@@ -221,8 +251,7 @@ for (let i = 0; i < 20; i++) {
 <div class="section">
     <h2>System Initialization</h2>
     <p>It all started on POF, not looking for romance...just friends from the LGBTQ community.</p>
-    <p>The search for friends was horrible as everyone was super weird. Then I received a message from you.</p> 
-    <p>I had no idea it would be a message from someone that would later become the best part of my life.</p>
+    <p>Then I received a message from you.</p> 
     <p>When I finally met you on campus at UAB everything began to shift.</p>
     <p>Watching how thoughtful, patient, and kind you were as you assisted others with their IT issues… I just knew you were different.</p>
     <p>Since that day, being around you makes my heart happy.</p>
@@ -254,9 +283,8 @@ for (let i = 0; i < 20; i++) {
     <img src="Grad.jpeg">
 </div>
 
-<!-- Hidden Message Section -->
 <div class="section">
-    <button onclick="revealSecret()">Unlock Hidden Message</button>
+    <button id="unlockButton" onclick="promptHiddenMessage()">Unlock Hidden Message</button>
     <p id="secret" class="secret-hidden">
         You are the power supply to my system.  
         Converting chaos into steady energy that keeps my heart running.  
@@ -265,10 +293,10 @@ for (let i = 0; i < 20; i++) {
     </p>
 </div>
 
-</div> <!-- End Container -->
+</div>
 
 <script>
-const correctPassword = "UABChangedMe2017!";
+const correctPassword = "You&Me@UAB2017!";
 
 function checkPassword() {
     const entered = document.getElementById("password").value;
@@ -312,10 +340,16 @@ function typeWriter() {
     typing();
 }
 
-function revealSecret() {
-    const secret = document.getElementById("secret");
-    secret.classList.remove("secret-hidden");
-    secret.classList.add("secret-revealed");
+// Prompt for hidden message password
+function promptHiddenMessage() {
+    const user = prompt("Enter password to reveal the hidden message:");
+    if(user === correctPassword){
+        const secret = document.getElementById("secret");
+        secret.classList.remove("secret-hidden");
+        secret.classList.add("secret-revealed");
+    } else {
+        alert("Incorrect password!");
+    }
 }
 </script>
 
