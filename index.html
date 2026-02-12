@@ -310,12 +310,13 @@ for (let i = 0; i < 20; i++) {
 
 <div class="section">
     <button onclick="revealSecret()">Unlock Hidden Message</button>
-    <p id="secret">
-        You are the power supply to my system.  
-        Converting chaos into steady energy that keeps my heart running.  
-        <br><br>
-        <strong>Happy Valentine’s Day!!!</strong>
+    <p id="secret" class="secret-hidden">
+       You are the power supply to my system.  
+       Converting chaos into steady energy that keeps my heart running.  
+       <br><br>
+       <strong>Happy Valentine’s Day!!!</strong>
     </p>
+
 </div>
 
 </div>
@@ -387,12 +388,12 @@ function startCounter() {
 // Corrected revealSecret function
 function revealSecret() {
     const secret = document.getElementById("secret");
-
-    // Add the proper classes
-    secret.classList.remove("secret-hidden"); // Remove hidden state
-    secret.classList.add("secret-revealed");  // Add revealed/glow state
+    secret.classList.remove("secret-hidden"); // remove hidden state
+    secret.classList.add("secret-revealed");  // add visible/glow state
 }
+
 </script>
+
 
 
 
