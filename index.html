@@ -198,6 +198,7 @@ img:hover {
     from { box-shadow: 0 0 15px rgba(192,108,132,0.3); }
     to { box-shadow: 0 0 40px rgba(192,108,132,0.6); }
 }
+
 </style>
 </head>
 
@@ -283,8 +284,10 @@ for (let i = 0; i < 20; i++) {
     <img src="Grad.jpeg">
 </div>
 
+<!-- Hidden Message Section with Inline Password -->
 <div class="section">
-    <button id="unlockButton" onclick="promptHiddenMessage()">Unlock Hidden Message</button>
+    <input type="password" id="hiddenPassword" placeholder="Enter password to unlock hidden message">
+    <button onclick="unlockHiddenMessage()">Reveal Hidden Message</button>
     <p id="secret" class="secret-hidden">
         You are the power supply to my system.  
         Converting chaos into steady energy that keeps my heart running.  
@@ -298,6 +301,7 @@ for (let i = 0; i < 20; i++) {
 <script>
 const correctPassword = "You&Me@UAB2017!";
 
+// Login function
 function checkPassword() {
     const entered = document.getElementById("password").value;
     if (entered === correctPassword) {
@@ -318,6 +322,7 @@ function checkPassword() {
     }
 }
 
+// Reveal sections sequentially
 function revealSections() {
     const sections = document.querySelectorAll('.section');
     sections.forEach((section, index) => {
@@ -327,6 +332,7 @@ function revealSections() {
     });
 }
 
+// Typewriter effect
 function typeWriter() {
     const text = "Lauren,";
     let i = 0;
@@ -340,10 +346,10 @@ function typeWriter() {
     typing();
 }
 
-// Prompt for hidden message password
-function promptHiddenMessage() {
-    const user = prompt("Enter password to reveal the hidden message:");
-    if(user === correctPassword){
+// Inline hidden message unlock
+function unlockHiddenMessage() {
+    const userInput = document.getElementById("hiddenPassword").value;
+    if(userInput === correctPassword){
         const secret = document.getElementById("secret");
         secret.classList.remove("secret-hidden");
         secret.classList.add("secret-revealed");
