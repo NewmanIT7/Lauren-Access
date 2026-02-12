@@ -174,9 +174,61 @@ img:hover {
                      0 0 25px rgba(192,108,132,0.6);
     }
 }
+
+/* Authentication Success Overlay */
+#authSuccess {
+    position: fixed;
+    inset: 0;
+    background: linear-gradient(135deg, #f8e1f4, #fcefee);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.8s ease;
+}
+
+#authSuccess.show {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.success-box {
+    background: rgba(255,255,255,0.6);
+    backdrop-filter: blur(20px);
+    padding: 50px 70px;
+    border-radius: 30px;
+    box-shadow: 0 30px 80px rgba(0,0,0,0.15);
+    text-align: center;
+    animation: successGlow 2s ease-in-out infinite alternate;
+}
+
+.success-box h2 {
+    font-family: 'Playfair Display', serif;
+    color: #c06c84;
+    margin: 0;
+}
+
+@keyframes successGlow {
+    from {
+        box-shadow: 0 0 15px rgba(192,108,132,0.3);
+    }
+    to {
+        box-shadow: 0 0 40px rgba(192,108,132,0.6);
+    }
+}
+
 </style>
 </head>
 
+ <div id="authSuccess">
+    <div class="success-box">
+        <h2>Authentication Successful</h2>
+        <p>Decrypting Love Protocol...</p>
+    </div>
+</div>
+   
 <body>
 
 <!-- Floating Hearts Script -->
@@ -270,16 +322,29 @@ const correctPassword = "UABChangedMe2017!";
 
 function checkPassword() {
     const entered = document.getElementById("password").value;
+
     if (entered === correctPassword) {
-        document.getElementById("login").style.display = "none";
-        document.getElementById("content").classList.remove("hidden");
-        revealSections();
-        typeWriter();
-        document.getElementById("bgmusic").play().catch(()=>{});
+
+        const overlay = document.getElementById("authSuccess");
+        overlay.classList.add("show");
+
+        // After short delay, transition to main content
+        setTimeout(() => {
+            document.getElementById("login").style.display = "none";
+            overlay.classList.remove("show");
+            document.getElementById("content").classList.remove("hidden");
+
+            revealSections();
+            typeWriter();
+            startCounter();
+            document.getElementById("bgmusic").play().catch(()=>{});
+        }, 2000);
+
     } else {
         alert("Authentication Failed");
     }
 }
+
 
 function revealSections() {
     const sections = document.querySelectorAll('.section');
@@ -316,6 +381,7 @@ function revealSecret() {
 
 </body>
 </html>
+
 
 
 
